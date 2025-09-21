@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Private Practical Research Tool</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      text-align: center;
+      width: 320px;
+      position: relative;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 14px;
+      color: #60a5fa;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-family: 'Brush Script MT', cursive;
+      font-weight: normal;
+    }
+    .input-group {
+      position: relative;
+      width: 100%;
+    }
+    input[type="password"], input[type="text"] {
+      width: 100%;
+      padding: 10px 40px 10px 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 2px solid #3b82f6;
+      background: #0f172a;
+      color: white;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .eye-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 16px;
+      color: #94a3b8;
+      user-select: none;
+    }
+    button {
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      background: linear-gradient(135deg, #3b82f6, #9333ea);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    label {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 15px;
+    }
+    .error {
+      color: #f87171;
+      font-size: 13px;
+      margin-top: 10px;
+      opacity: 0;
+      display: none;
+    }
+    .error.show {
+      display: block;
+      animation: blurFade 1s forwards;
+    }
+    @keyframes blurFade {
+      0% { opacity: 1; filter: blur(0px); }
+      50% { opacity: 1; filter: blur(2px); }
+      100% { opacity: 0; filter: blur(4px); }
+    }
+    .welcome {
+      display: none;
+      text-align: center;
+      width: 90%;
+      max-width: 900px;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .welcome h1 {
+      font-family: 'Brush Script MT', cursive;
+      color: red;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .section {
+      margin: 30px 0;
+      text-align: left;
+    }
+    .section h3 {
+      margin-bottom: 15px;
+      color: #60a5fa;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 5px;
+    }
+    .btn-grid {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-grid button {
+      background: linear-gradient(135deg, #3b82f6, #9333ea);
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Page -->
+  <div class="container" id="loginPage">
+    <h1>PRIVATE PRACTICAL RESEARCH TOOL</h1>
+    <h2>GROUP 1</h2>
+    <div class="input-group">
+      <input type="password" id="keyInput" placeholder="Enter decryption key">
+      <span class="eye-icon" id="toggleEye">👁️</span>
+    </div>
+    <label>
+      <input type="checkbox" id="savePassword"> Save password
+    </label>
+    <button onclick="checkKey()">Continue</button>
+    <p style="font-size: 12px; color: #94a3b8;">To verify you are really a group 1, put the decryption key.</p>
+    <p class="error" id="errorMsg">❌ Incorrect key, try again.</p>
+  </div>
+
+  <!-- Welcome / Dashboard Page -->
+  <div class="welcome" id="welcomePage">
+    <h1>Master Jas Property</h1>
+
+    <!-- Section 1 -->
+    <div class="section">
+      <h3>A.I Sec</h3>
+      <div class="btn-grid">
+        <button onclick="window.open('https://chatgpt.com/','_blank')">CHAT GPT</button>
+        <button onclick="window.open('https://gemini.google.com/','_blank')">GEMINI</button>
+        <button onclick="window.open('https://copilot.microsoft.com/','_blank')">CO PILOT</button>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+      <h3>Paraphraser / Humanizer Sec</h3>
+      <div class="btn-grid">
+        <button onclick="window.open('https://aihumanize.io/','_blank')">AIHUMANIZE.IO</button>
+        <button onclick="window.open('https://www.the-ghost-ai.com/app','_blank')">GHOST AI</button>
+        <button onclick="window.open('https://www.humanizeai.pro/','_blank')">HUMANI PRO</button>
+        <button onclick="window.open('https://quillbot.com/ai-humanizer','_blank')">QUILL BOT</button>
+        <button onclick="window.open('https://www.grammarly.com/ai-humanizer','_blank')">GRAMMARLY (SIGN IN)</button>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section">
+      <h3>Scanner / Test for Detection Sec</h3>
+      <div class="btn-grid">
+        <button onclick="window.open('https://www.zerogpt.com/','_blank')">ZERO GPT</button>
+        <button onclick="window.open('https://quillbot.com/ai-content-detector','_blank')">QUILL DETECTOR</button>
+        <button onclick="window.open('https://www.grammarly.com/ai-detector','_blank')">GRAMMARLY (SIGN IN)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const correctKey = "mastermaster"; 
+    const keyInput = document.getElementById("keyInput");
+    const errorMsg = document.getElementById("errorMsg");
+    const savePassword = document.getElementById("savePassword");
+    const toggleEye = document.getElementById("toggleEye");
+
+    // Load saved password if exists
+    window.onload = () => {
+      const saved = localStorage.getItem("savedKey");
+      if (saved) {
+        keyInput.value = saved;
+        savePassword.checked = true;
+      }
+    };
+
+    // Show/hide password
+    toggleEye.addEventListener("click", () => {
+      if (keyInput.type === "password") {
+        keyInput.type = "text";
+        toggleEye.textContent = "🙈";
+      } else {
+        keyInput.type = "password";
+        toggleEye.textContent = "👁️";
+      }
+    });
+
+    function checkKey() {
+      const enteredKey = keyInput.value.trim();
+      if (enteredKey === correctKey) {
+        if (savePassword.checked) {
+          localStorage.setItem("savedKey", enteredKey);
+        } else {
+          localStorage.removeItem("savedKey");
+        }
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("welcomePage").style.display = "block";
+        document.body.style.alignItems = "flex-start";
+        document.body.style.padding = "40px";
+      } else {
+        errorMsg.classList.remove("show");
+        void errorMsg.offsetWidth; // restart animation
+        errorMsg.classList.add("show");
+      }
+    }
+  </script>
+</body>
+</html>
